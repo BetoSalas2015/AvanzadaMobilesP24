@@ -8,6 +8,7 @@ function mapforEach(arr, fn) {
 
 var arreglo = [ 1, 2, 3];
 
+
 var arreglo1 = mapforEach( arreglo, function(valor) {
     return valor * 2;
 });
