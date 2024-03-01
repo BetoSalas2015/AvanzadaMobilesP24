@@ -1,12 +1,9 @@
+const { crearArchivo } = require('./modulos/multiplicar');
+
 console.clear();
 
-let base = 5;
+let base = 3;
 
-console.log("====================");
-console.log(`  Tabla del ${base} `);
-console.log("====================");
-
-for (let i = 1; i <= 10; i++) 
-    console.log(`${base} * ${i} = ${base * i}`);
-
-
+crearArchivo(base)
+            .then( (nombreArchivo) => { console.log(nombreArchivo, " creado");})
+            .catch((err) => {console.log(err); });
