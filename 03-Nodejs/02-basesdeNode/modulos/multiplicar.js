@@ -1,15 +1,16 @@
 const { Module } = require("module");
 const fs = require('node:fs');
+const colors = require('colors');
 
-const crearArchivo = async (base = 5) => {
+const crearArchivo = async (base = 5, limite = 10) => {
     return new Promise( (resolve, reject) => {
         let salida = "";
 
-        console.log("====================");
-        console.log(`  Tabla del ${base} `);
-        console.log("====================");
+        console.log("====================".green);
+        console.log(`  Tabla del ${base} `.green);
+        console.log("====================".green);
 
-        for (let i = 1; i <= 10; i++) 
+        for (let i = 1; i <= limite; i++) 
             salida += `${base} * ${i} = ${base * i}\n`;
 
 

@@ -1,0 +1,20 @@
+{
+  "name": "basesnode",
+  "version": "0.1.0",
+  "description": "Programa que ilustra las bases de Node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "base5": "node app.js --base=5 --limite=12"
+  },
+  "keywords": [
+    "Nodejs",
+    "javascript"
+  ],
+  "author": "Roberto Salazar Márquez",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "yargs": "^17.7.2"
+  }
+}
