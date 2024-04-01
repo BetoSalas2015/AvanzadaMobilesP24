@@ -1,12 +1,25 @@
 const colors = require('colors');
-const { mostrarMenu, pausa } = require('./js/mensajes');
+const { inquirerMenu, pausa, capturaEntrada } = require('./js/inquirer'); 
+const Tareas = require('./modelos/tareas');
+const Tarea = require('./modelos/tarea');
 
-const main = async () => {
+const main = async () => { 
     let opc = '';
-    do {
-        opc = await mostrarMenu();
-    } while (opc != '0');
+    tareas = new Tareas();
+        do {
+        opc = await inquirerMenu();
+        switch (opc) {
+            case 1: const resp = await capturaEntrada('Descripción: ');
+                    console.log(resp);
+                    tareas.crearTarea(resp); 
+                    break;
+            case 2: console.log( tareas.listado);  break;
+        
+            default:
+                break;
+        }
 
+    } while (opc != 0);
 
     await pausa();
 };
