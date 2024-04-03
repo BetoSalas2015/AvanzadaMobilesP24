@@ -11,6 +11,21 @@ class Tareas {
         this.listado[tarea.id] = tarea;
     };
 
+    get listadoArr() {
+        const listadoArr = [];
+        Object.keys(this.listado).forEach( (key) => {
+            const tarea = this.listado[key];
+            listadoArr.push(tarea);
+        });
+        return listadoArr;
+    }
+
+    cargarListado = (arreglo) => {
+        arreglo.forEach( (tarea) => {
+            this.listado[tarea.id] = tarea;
+        });
+    }
+
 }
 
 module.exports = Tareas;
