@@ -1,4 +1,5 @@
 const Tarea = require("./tarea");
+const colors = require('colors');
 
 class Tareas {
 
@@ -25,6 +26,45 @@ class Tareas {
             this.listado[tarea.id] = tarea;
         });
     }
+
+    imprimeTareas = () => {
+        let salida = '';
+        let cont = 1;
+        this.listadoArr.forEach( (tarea) => {
+            salida = `${cont.toString().green + ".".green} ${tarea.descripción.grey} :: `;
+            if (tarea.completado) {
+                salida += `${'Completado'.green}`;
+            } else {
+                salida += `${'Pendiente'.red}`;
+            } 
+            console.log(salida);
+            cont++;
+        });
+    };
+
+    imprimirPendientesCompletadas = (tipo) => {
+        let salida = '';
+        let cont = 1;
+        if (tipo) {
+            this.listadoArr.forEach( (tarea) => {
+                if (tarea.completado !== null) {
+                    salida = `${cont.toString().green + ".".green} ${tarea.descripción.grey} :: ${'Completado'.green}\n`;
+                }
+                cont++;
+                
+            } );
+            console.log(salida);
+        } else {
+            this.listadoArr.forEach( (tarea) => {
+                if (tarea.completado !== null) {
+                    salida = `${cont.toString().green + ".".green} ${tarea.descripción.grey} :: ${'Pendiente'.red}\n`;
+                }
+                cont++;
+                
+            } );
+            console.log(salida);
+        }
+    };
 
 }
 

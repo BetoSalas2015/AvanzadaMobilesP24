@@ -19,7 +19,9 @@ const main = async () => {
                     console.log(resp);
                     tareas.crearTarea(resp); 
                     break;
-            case 2: console.log( tareas.listadoArr);  break;
+            case 2: tareas.imprimeTareas(); break;
+            case 3: tareas.imprimirPendientesCompletadas(true); break;
+            case 4: tareas.imprimirPendientesCompletadas(false); break;
         
             default:
                 break;
