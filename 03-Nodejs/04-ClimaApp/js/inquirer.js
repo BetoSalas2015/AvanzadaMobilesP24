@@ -1,6 +1,5 @@
 const inquirer = require('inquirer');
 const colors = require ('colors');
-const { validate } = require('uuid');
 
 const menu = [
     {   
@@ -10,27 +9,11 @@ const menu = [
         choices: [
             {
                 value: 1,
-                name: `1. Crear Tarea`
+                name: `1. Buscar Ciudad`
             },
             {
                 value: 2,
-                name: `2. Listar Tareas`
-            },
-            {
-                value: 3,
-                name: `3. Listar Tareas Terminadas`
-            },
-            {
-                value: 4,
-                name: `4. Listar Tareas Pendientes`
-            },
-            {
-                value: 5,
-                name: `5. Completar Tarea.`
-            },
-            {
-                value: 6,
-                name: `6. Borrar Tarea`
+                name: `2. Historial`
             },
             {
                 value: 0,
@@ -41,7 +24,7 @@ const menu = [
 ];
 
 const inquirerMenu = async () => {
-        //console.clear();
+        console.clear();
         console.log("======================".green);
         console.log(" Seleccione una opción".green);
         console.log("======================".green);

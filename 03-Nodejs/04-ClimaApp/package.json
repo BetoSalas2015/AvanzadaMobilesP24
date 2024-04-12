@@ -1,23 +1,20 @@
 {
-  "name": "consola",
-  "version": "1.0.0",
-  "description": "Consola interactiva con Nodejs",
+  "name": "climaapp",
+  "version": "0.1.0",
+  "description": "Aplicación de Geoposicionamiento y clima",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "node",
     "javascript",
-    "node"
+    "rest"
   ],
   "author": "Roberto Salazar Márquez",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
-    "inquirer": "^8.0.0",
-    "uuid": "^9.0.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.0"
+    "inquirer": "^8.0.0"
   }
 }
