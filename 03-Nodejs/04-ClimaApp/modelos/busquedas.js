@@ -17,9 +17,14 @@ class Busquedas {
             }
         });
         const resp = await consulta.get();
-        console.log(resp.data);
-        return []
+        return resp.data.features.map( (ubicacion) => ({
+            id: ubicacion.id,
+            lugar: ubicacion.place_name_es,
+            lat: ubicacion.center[1],
+            lon: ubicacion.center[0]
+        }));
     }
 }
 
 module.exports = Busquedas;
+
