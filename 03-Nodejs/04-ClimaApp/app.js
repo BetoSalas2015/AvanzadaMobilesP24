@@ -1,3 +1,4 @@
+require('dotenv').config();
 const colors = require('colors');
 const { inquirerMenu, capturaEntrada, pausa, listadoCiudades } = require('./js/inquirer');
 const Busqueda = require('./modelos/busquedas');
@@ -14,11 +15,17 @@ const main = async () => {
                     if (!id) {
                         break
                     }
-                    const lugarSeleccionado = lugares.find( ciudad => ciudad.id === id); 
+                    const lugarSeleccionado = lugares.find( ciudad => ciudad.id === id);
+                    const clima = await busqueda.climaCiudad(lugarSeleccionado.lat, lugarSeleccionado.lon); 
                     // Impresión del lugar seleccionado:
                     console.log(`\n${'Ciudad: '.yellow}: ${lugarSeleccionado.lugar} `);
                     console.log(`${'Latitud: '.yellow}: ${lugarSeleccionado.lat} `);
                     console.log(`${'Longitud: '.yellow}: ${lugarSeleccionado.lon} `);
+                    console.log(`${'Clima: '.yellow}: ${clima.desc} `);
+                    console.log(`${'Temperatura: '.yellow}: ${clima.temp} centigrados`);
+                    console.log(`${'Sensación termica: '.yellow}: ${clima.real} centigrados`);
+                    console.log(`${'Temperatura Mínima: '.yellow}: ${clima.min} centigrados`);
+                    console.log(`${'Temperatura Máxima: '.yellow}: ${clima.max} centigrados`);
                     await pausa();
                     break;
             case 2: break;

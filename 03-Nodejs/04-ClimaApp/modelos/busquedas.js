@@ -13,7 +13,7 @@ class Busquedas {
             params: {
                 limit: 5,
                 language: 'es',
-                'access_token': 'pk.eyJ1Ijoicm9iZXJ0b3NhbGF6YXJtYXJxdWV6IiwiYSI6ImNsMXdyejhqNTJ6bWozY3BjaTlkMHBqaTQifQ.e6d_r7x8mhfRqOKlK3QEQg'
+                'access_token': process.env.MAPBOX
             }
         });
         const resp = await consulta.get();
@@ -24,6 +24,30 @@ class Busquedas {
             lon: ubicacion.center[0]
         }));
     }
+
+    climaCiudad = async(lat, lon) => {
+        const consulta = axios.create({
+            baseURL: `https://api.openweathermap.org/data/2.5/weather`,
+            params: {
+                'lat': lat,
+                'lon': lon,
+                'appid': process.env.OPENWEATHER,
+                'units': 'metric',
+                'lang': 'es'
+            }
+        });
+        const resp = await consulta.get();
+
+        return {
+            desc: resp.data.weather[0].description,
+            temp: resp.data.main.temp,
+            real: resp.data.main.feels_like,
+            min: resp.data.main.temp_min,
+            max: resp.data.main.temp_max
+        }
+
+    }
+    
 }
 
 module.exports = Busquedas;
