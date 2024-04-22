@@ -16,6 +16,7 @@ const main = async () => {
                         break
                     }
                     const lugarSeleccionado = lugares.find( ciudad => ciudad.id === id);
+                    busqueda.guardarBusquedas(lugarSeleccionado.lugar);
                     const clima = await busqueda.climaCiudad(lugarSeleccionado.lat, lugarSeleccionado.lon); 
                     // Impresión del lugar seleccionado:
                     console.log(`\n${'Ciudad: '.yellow}: ${lugarSeleccionado.lugar} `);
@@ -30,6 +31,7 @@ const main = async () => {
                     break;
             case 2: break;
         }
+        busqueda.guardaBase();
         if (resp === 0) {
             await pausa();
         }

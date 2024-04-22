@@ -1,7 +1,9 @@
 const axios = require('axios');
+const fs = require('fs');
 
 class Busquedas {
     historial = [];
+    dbPath = './db/database.json';
 
     constructor( ) {
 
@@ -47,6 +49,25 @@ class Busquedas {
         }
 
     }
+
+    guardarBusquedas = (lugar = '') => {
+        this.historial.unshift(lugar);
+    };
+
+    guardaBase = () => {
+        const basedatos = {
+            'historial': this.historial
+        }
+        console.log(basedatos);
+        try {
+            fs.writeFileSync(this.dbPath, JSON.stringify(basedatos));
+        } catch (error) {
+            throw error;
+        }
+        
+    };
+
+    cargaBase = () => {};
     
 }
 
